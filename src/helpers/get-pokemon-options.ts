@@ -1,35 +1,35 @@
-import pokeApi from "../api/pokeApi"
-import type { IPokemon } from "@/interfaces/pokemon.interface"
 import type { AxiosResponse } from "axios"
 
-const getPokemons = () => {
+import pokeApi from "@/api/pokeApi"
+import type { IPokemon } from "@/interfaces/pokemon.interface"
+
+const getPokemons = (): number[] => {
   return Array.from(Array(650)).map((_, index) => {
     return index + 1
   })
 }
 
-const getPokemonOptions = () => {
+const getPokemonOptions = (): Promise<IPokemon[]> => {
   const mixedPokemons = getPokemons().sort(() => Math.random() - 0.5)
-  return getPokemonNames(mixedPokemons.slice(0, 4))
+  return getFourPokemonNames(mixedPokemons.slice(0, 4))
 }
 
-const getPokemonNames = async (
+const getFourPokemonNames = async (
   listOfPokemons: number[] = []
-): Promise<{ id: number; name: string }[]> => {
-  const pokemonPromises: Promise<AxiosResponse<IPokemon>>[] = []
+): Promise<IPokemon[]> => {
+  if (listOfPokemons.length !== 4) throw new Error("You must pass 4 pokemons")
 
+  const pokemonPromises: Promise<AxiosResponse<IPokemon>>[] = []
   for (const pokemon of listOfPokemons) {
     pokemonPromises.push(pokeApi.get(`/pokemon/${pokemon}`))
   }
 
   const pokemonResponses = await Promise.all(pokemonPromises)
 
-  const pokemons = pokemonResponses.map((pokemon) => ({
+  return pokemonResponses.map((pokemon) => ({
     id: pokemon.data.id,
     name: pokemon.data.name,
   }))
-
-  return pokemons
 }
 
 export default getPokemonOptions

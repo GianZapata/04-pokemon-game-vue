@@ -1,14 +1,31 @@
 <template>
   <div class="my-20">
     <img
-      class="w-64 h-64"
-      :src="imgSrc"
+      class="w-64 h-64 fade-in"
+      :src="pokemonImage"
       alt="Pokemon"
       :class="showPokemon ? 'show' : 'brightness-0 disable-drag'"
     />
   </div>
 </template>
-<script lang="ts">
+
+<script setup lang="ts">
+import { usePokemons } from "@/composables/usePokemons"
+
+const { showPokemon, pokemonImage } = usePokemons()
+</script>
+
+<style lang="css">
+.disable-drag {
+  user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+}
+</style>
+
+<!-- <script lang="ts">
 export default {
   props: {
     pokemonId: {
@@ -27,13 +44,4 @@ export default {
     },
   },
 }
-</script>
-<style lang="css">
-.disable-drag {
-  user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-drag: none;
-  -webkit-user-select: none;
-}
-</style>
+</script> -->

@@ -4,13 +4,29 @@
       class="font-bold py-2 px-4 rounded w-96 my-2 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 bg-blue-500 hover:bg-blue-700 text-white"
       v-for="pokemon in pokemons"
       :key="pokemon.id"
-      @click="$emit('selectPokemon', pokemon.id)"
+      @click="checkAnswer(pokemon.id)"
     >
       {{ capitalize(pokemon.name) }}
     </button>
+    <!-- <button
+      class="font-bold py-2 px-4 rounded w-96 my-2 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 bg-blue-500 hover:bg-blue-700 text-white"
+      v-for="pokemon in pokemons"
+      :key="pokemon.id"
+      @click="$emit('selectPokemon', pokemon.id)"
+    >
+      {{ capitalize(pokemon.name) }}
+    </button> -->
   </div>
 </template>
-<script lang="ts">
+
+<script setup lang="ts">
+import { usePokemons } from "@/composables/usePokemons"
+import capitalize from "@/helpers/capitalize"
+
+const { pokemons, checkAnswer } = usePokemons()
+</script>
+
+<!-- <script lang="ts">
 import capitalize from "@/helpers/capitalize"
 export default {
   name: "PokemonOptions",
@@ -24,5 +40,4 @@ export default {
     capitalize,
   },
 }
-</script>
-<style lang=""></style>
+</script> -->

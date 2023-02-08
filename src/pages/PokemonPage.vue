@@ -9,10 +9,10 @@
     <h1 class="text-3xl text-center mt-20 font-black text-slate-900">
       ¿Quién este este pokemon?
     </h1>
-    <PokemonImage :pokemonId="pokemon.id" :show-pokemon="showPokemon" />
-    <PokemonOptions :pokemons="pokemons" @select-pokemon="checkAnswer" />
+    <PokemonImage />
+    <PokemonOptions />
 
-    <template v-if="showPokemon">
+    <template v-if="showAnswer">
       <h2
         class="text-2xl text-center mt-20 font-black text-slate-900"
         v-if="message"
@@ -30,7 +30,27 @@
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
+import PokemonOptions from "@/components/PokemonOptions.vue"
+import PokemonImage from "@/components/PokemonImage.vue"
+
+import { usePokemons } from "@/composables/usePokemons"
+
+const {
+  /** Properties */
+  message,
+  pokemon,
+  showAnswer,
+
+  /** Methods */
+  mixPokemonArray,
+  newGame,
+} = usePokemons()
+
+mixPokemonArray()
+</script>
+
+<!-- <script lang="ts">
 import PokemonImage from "@/components/PokemonImage.vue"
 import PokemonOptions from "@/components/PokemonOptions.vue"
 import getPokemonOptions from "@/helpers/get-pokemon-options"
@@ -79,4 +99,4 @@ export default {
     this.mixPokemons()
   },
 }
-</script>
+</script> -->

@@ -1,4 +1,8 @@
 export interface IPokemon {
+  id: number
+  name: string
+}
+export interface Pokemon {
   abilities: Ability[]
   base_experience: number
   forms: Species[]
