@@ -43,60 +43,8 @@ const {
   showAnswer,
 
   /** Methods */
-  mixPokemonArray,
+  mixPokemons,
   newGame,
 } = usePokemons()
-
-mixPokemonArray()
+mixPokemons()
 </script>
-
-<!-- <script lang="ts">
-import PokemonImage from "@/components/PokemonImage.vue"
-import PokemonOptions from "@/components/PokemonOptions.vue"
-import getPokemonOptions from "@/helpers/get-pokemon-options"
-
-export default {
-  components: {
-    PokemonImage,
-    PokemonOptions,
-  },
-  data() {
-    return {
-      pokemons: [] as { id: number; name: string }[],
-      pokemon: null as { id: number; name: string } | null,
-      showPokemon: false,
-      message: "",
-    }
-  },
-  methods: {
-    async mixPokemons() {
-      const pokemons = await getPokemonOptions()
-      this.pokemons = pokemons
-      const randomIndex = Math.floor(Math.random() * pokemons.length)
-      this.pokemon = pokemons[randomIndex]
-    },
-    checkAnswer(pokemonId: number) {
-      this.showPokemon = true
-      if (pokemonId === this.pokemon?.id) {
-        this.message = `¡Correcto! El pokemon es ${this.pokemon?.name}`
-      } else {
-        this.message = `Oops! El pokemon era ${this.pokemon?.name}`
-      }
-
-      setTimeout(() => {
-        this.newGame()
-      }, 2000)
-    },
-    newGame() {
-      this.showPokemon = false
-      this.message = ""
-      this.pokemons = []
-      this.pokemon = null
-      this.mixPokemons()
-    },
-  },
-  mounted() {
-    this.mixPokemons()
-  },
-}
-</script> -->

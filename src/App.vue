@@ -5,5 +5,6 @@
 </template>
 
 <script setup lang="ts">
-import PokemonPage from "@/pages/PokemonPage.vue"
+import PokemonPage from "@/pages/PokemonPageOld.vue"
+// import PokemonPage from "@/pages/PokemonPage.vue"
 </script>

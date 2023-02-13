@@ -1,0 +1,3 @@
+// Vitest Snapshot v1
+
+exports[`PokemonImage Component > Debe de hacer el snapshot 1`] = `"<div class=\\"my-20\\"><img class=\\"w-64 h-64 fade-in hide-pokemon brightness-0 disable-drag\\" src=\\"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg\\" alt=\\"Pokemon\\"></div>"`;

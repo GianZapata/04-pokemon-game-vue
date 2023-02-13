@@ -9,7 +9,7 @@ export const usePokemons = () => {
   const { message, pokemon, pokemons, showAnswer, showPokemon } =
     storeToRefs(pokemonStore)
 
-  const mixPokemonArray = async () => {
+  const mixPokemons = async () => {
     const mixedPokemons = await getPokemonOptions()
     pokemonStore.loadPokemons(mixedPokemons)
 
@@ -31,7 +31,7 @@ export const usePokemons = () => {
 
   const newGame = () => {
     pokemonStore.clearState()
-    mixPokemonArray()
+    mixPokemons()
   }
 
   return {
@@ -50,7 +50,7 @@ export const usePokemons = () => {
 
     /** Methods */
     checkAnswer,
-    mixPokemonArray,
+    mixPokemons,
     newGame,
   }
 }

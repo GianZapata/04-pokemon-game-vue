@@ -21,11 +21,11 @@ export default defineComponent({
 
       /** Methods */
       checkAnswer,
-      mixPokemonArray,
+      mixPokemons,
       newGame,
     } = usePokemons()
 
-    mixPokemonArray()
+    mixPokemons()
 
     return {
       message,
@@ -36,7 +36,7 @@ export default defineComponent({
 
       /** Methods */
       checkAnswer,
-      mixPokemonArray,
+      mixPokemons,
       newGame,
     }
   },

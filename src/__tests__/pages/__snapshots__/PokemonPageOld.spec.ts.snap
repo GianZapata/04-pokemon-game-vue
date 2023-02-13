@@ -1,0 +1,16 @@
+// Vitest Snapshot v1
+
+exports[`PokemonPage Component > Debe de hacer el snapshot 1`] = `
+"<div class=\\"flex flex-col items-center justify-center\\">
+  <h1 class=\\"text-3xl text-center mt-20 font-black text-slate-900\\"> Cargando ... </h1>
+</div>"
+`;
+
+exports[`PokemonPage Component > Debe de hacer match con el snapshot cuando cargan los pokemons 1`] = `
+"<div class=\\"flex flex-col items-center justify-center\\">
+  <h1 class=\\"text-3xl text-center mt-20 font-black text-slate-900\\"> ¿Quién este este pokemon? </h1>
+  <pokemon-image-stub pokemonid=\\"1\\" showpokemon=\\"false\\"></pokemon-image-stub>
+  <pokemon-options-stub pokemons=\\"[object Object],[object Object],[object Object],[object Object],[object Object]\\"></pokemon-options-stub>
+  <!--v-if-->
+</div>"
+`;
